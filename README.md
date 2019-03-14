@@ -1,2 +1,4 @@
 # group16_eudeka
-this repo used to compleate the study of the OSG3 EUDEKA group
+find domain avaibility using MVVM pattern.
+
+this project used for finish OSG3 - EUDEKA Course
