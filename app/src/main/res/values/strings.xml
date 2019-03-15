@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="text_nama_domain">Nama Domain</string>
+    <string name="text_input_title">Masukan nama Domain</string>
+    <string name="text_cek_domain">Cek Domain</string>
+    <string name="text_cari_domain">Cari</string>
+</resources>
