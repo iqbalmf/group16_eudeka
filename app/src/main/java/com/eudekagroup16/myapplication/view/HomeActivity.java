@@ -32,6 +32,7 @@ public class HomeActivity extends AppCompatActivity implements HomeNavigator {
         homeViewModel = new HomeViewModel(Injection.provideTeamRepository(this),this);
         dataListDomain = new ArrayList<>();
         homeViewModel.setHomeNavigator(this);
+        //parameter query domain yang di input user
         homeViewModel.getCheckResult("facebook");
 
     }
