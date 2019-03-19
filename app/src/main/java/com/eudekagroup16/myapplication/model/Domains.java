@@ -13,6 +13,7 @@ public class Domains {
     @SerializedName("domains")
     List<DomainDetail> domains;
 
+
     public Domains(List<DomainDetail> domains) {
         this.domains = domains;
     }

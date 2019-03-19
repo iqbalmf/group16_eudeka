@@ -15,6 +15,7 @@ import com.eudekagroup16.myapplication.navigator.HomeNavigator;
 import com.eudekagroup16.myapplication.viewmodel.HomeViewModel;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class HomeActivity extends AppCompatActivity implements HomeNavigator {
@@ -45,10 +46,17 @@ public class HomeActivity extends AppCompatActivity implements HomeNavigator {
         //Testing Menampilkan Ambil data Ambil data
         int listsize = listDomain.size();
         for (int i = 0; i<listsize; i++){
-            DomainDetail data = listDomain.get(i);
-            Log.e("Data Array:" , data.getDomainName());
-        }
+                DomainDetail data = listDomain.get(i);
 
+//                if (data.getDomainNS() == null) {
+//                    Log.e("Data NS:" , "Ada Data Kosong");
+//                    Log.e("Data Array:" , data.getDomainName());
+//
+//                } else {
+                    Log.e("Data Array:" , data.getDomainName());
+                    //Log.e("Data Array:", data.getDomainNS().toString());
+                //}
+            }
     }
 
     @Override
