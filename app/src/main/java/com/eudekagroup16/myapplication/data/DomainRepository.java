@@ -12,7 +12,6 @@ public class DomainRepository implements DomainNameDataSource {
         this.domainemoteDataSource = domainNameRemoteDataSource;
     }
 
-
     @Override
     public void getListDomains(final GetDomainsCallback callback, String query) {
         domainemoteDataSource.getListDomains(new GetDomainsCallback() {
@@ -20,12 +19,11 @@ public class DomainRepository implements DomainNameDataSource {
             public void onDomainsLoaded(Domains data) {
                 callback.onDomainsLoaded(data);
             }
+
             @Override
             public void onDataNotAvailable(String errorMessage) {
                 callback.onDataNotAvailable(errorMessage);
             }
         }, query);
     }
-
-
 }

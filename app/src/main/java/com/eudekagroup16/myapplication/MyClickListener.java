@@ -3,6 +3,8 @@ package com.eudekagroup16.myapplication;
 import android.content.Context;
 import android.view.View;
 
+import com.eudekagroup16.myapplication.viewmodel.HomeViewModel;
+
 /**
  * Project MyApplication
  * <p>
@@ -10,6 +12,7 @@ import android.view.View;
  */
 public class MyClickListener {
     private Context context;
+    private HomeViewModel homeViewModel;
 
     public MyClickListener(Context context) {
         this.context = context;
@@ -18,7 +21,7 @@ public class MyClickListener {
 
     }
 
-    public void onCheckAvaibility(){
+    public void onCheckAvaibility(View view){
 
     }
 }

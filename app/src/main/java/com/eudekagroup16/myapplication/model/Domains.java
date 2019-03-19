@@ -1,7 +1,6 @@
 package com.eudekagroup16.myapplication.model;
 
 import com.google.gson.annotations.SerializedName;
-
 import java.util.List;
 
 /**
