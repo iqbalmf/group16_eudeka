@@ -22,7 +22,10 @@ public class DomainDetail {
     private List<String> domainNS ;
 
 
-
+    public DomainDetail(String domainName, String domainCountry) {
+        this.domainName = domainName;
+        this.domainCountry = domainCountry;
+    }
 
     public DomainDetail(String domainName, String domainSuffix, String domainExpiry, String domainCreate, String domainUpdate, String domainCountry, List domainNS) {
         this.domainName = domainName;
