@@ -18,7 +18,7 @@ public class MyClickListener {
 
     }
 
-    public void onCheckAvaibility(){
+    public void onCheckAvaibility(View view){
 
     }
 }

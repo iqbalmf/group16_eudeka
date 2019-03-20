@@ -1,7 +1,7 @@
 package com.eudekagroup16.myapplication.view;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -18,11 +18,15 @@ public class DomainListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_domain_list);
         initUi();
+        setupAdapter();
     }
 
     private void initUi() {
-        adapter = new DomainAdapter();
         domainRv = findViewById(R.id.listDomain);
+    }
+
+    private void setupAdapter() {
+        adapter = new DomainAdapter();
         domainRv.setAdapter(adapter);
         domainRv.setLayoutManager(new LinearLayoutManager(this));
     }
