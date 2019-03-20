@@ -8,7 +8,7 @@
             name="myClickListener"
             type="com.eudekagroup16.myapplication.MyClickListener"/>
         <import type="android.view.View"/>
-        
+
     </data>
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
