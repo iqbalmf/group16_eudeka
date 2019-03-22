@@ -13,7 +13,7 @@ public class ItemDomainViewModel {
     public ItemDomainViewModel(DomainDetail domainDetail) {
         domainNameValue = new ObservableField<>(domainDetail.getDomainName());
         domainCountryValue = new ObservableField<>("");
-        if (TextUtils.isEmpty(domainDetail.domainName)) {
+        if (TextUtils.isEmpty(domainDetail.domainCountry)) {
             domainCountryValue.set("-");
         }else{
             domainCountryValue.set(domainDetail.getDomainCountry());
