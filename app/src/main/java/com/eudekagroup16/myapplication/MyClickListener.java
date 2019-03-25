@@ -2,8 +2,11 @@ package com.eudekagroup16.myapplication;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 
+import com.eudekagroup16.myapplication.databinding.ActivityMainBinding;
+import com.eudekagroup16.myapplication.model.Domains;
 import com.eudekagroup16.myapplication.view.DomainListActivity;
 import com.eudekagroup16.myapplication.viewmodel.HomeViewModel;
 
@@ -14,17 +17,19 @@ import com.eudekagroup16.myapplication.viewmodel.HomeViewModel;
  */
 public class MyClickListener {
     private Context context;
-    private HomeViewModel homeViewModel;
+    Domains domains;
 
     public MyClickListener(Context context) {
         this.context = context;
     }
-    public void onClickListener(View view){
 
-    }
-
-    public void onCheckAvaibility(View view){
+    public void onClickListener(View view) {
         Intent intent = new Intent(context, DomainListActivity.class);
         context.startActivity(intent);
+        Log.i("TAG", "onClickListener: "+domains);
+    }
+
+    public void onCheckAvaibility(View.OnClickListener view) {
+
     }
 }

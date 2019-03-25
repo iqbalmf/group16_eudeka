@@ -8,6 +8,7 @@ public interface DomainNameDataSource {
 
     interface GetDomainsCallback {
         void onDomainsLoaded(Domains data);
+        void onDataAvailable();
         void onDataNotAvailable(String errorMessage);
     }
 }

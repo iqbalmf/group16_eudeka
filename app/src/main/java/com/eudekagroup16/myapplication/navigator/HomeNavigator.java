@@ -1,5 +1,7 @@
 package com.eudekagroup16.myapplication.navigator;
 
+import android.content.Context;
+
 import com.eudekagroup16.myapplication.model.DomainDetail;
 
 import java.util.List;
@@ -11,6 +13,8 @@ import java.util.List;
  */
 public interface HomeNavigator {
     void onViewLoaded(List<DomainDetail> listDomain);
+
+    void onDataNotFound();
 
     void onErrorLoaded(String message);
 }

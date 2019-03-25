@@ -1,8 +1,6 @@
 package com.eudekagroup16.myapplication.data;
 
-import android.support.annotation.Nullable;
-
-import com.eudekagroup16.myapplication.data.remote.*;
+import com.eudekagroup16.myapplication.data.remote.DomainNameRemoteDataSource;
 import com.eudekagroup16.myapplication.model.Domains;
 
 public class DomainRepository implements DomainNameDataSource {
@@ -18,6 +16,11 @@ public class DomainRepository implements DomainNameDataSource {
             @Override
             public void onDomainsLoaded(Domains data) {
                 callback.onDomainsLoaded(data);
+            }
+
+            @Override
+            public void onDataAvailable() {
+                callback.onDataAvailable();
             }
 
             @Override
