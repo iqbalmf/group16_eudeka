@@ -33,10 +33,9 @@ public class DomainListViewModel {
         domainListVisibility = new ObservableInt(View.GONE);
         errorMessageVisibility = new ObservableInt(View.GONE);
         errorMessageValue = new ObservableField<>("");
-        getDomainList();
     }
 
-    public void getDomainList() {
+    public void getDomainList(String queryText) {
         progressBarVisibility.set(View.VISIBLE);
         domainListVisibility.set(View.GONE);
         errorMessageVisibility.set(View.GONE);
@@ -58,6 +57,15 @@ public class DomainListViewModel {
                 progressBarVisibility.set(View.GONE);
                 errorMessageValue.set(errorMessage);
             }
-        }, null);
+
+            @Override
+            public void onDataAvailable() {
+                navigator.setLoading(false);
+                errorMessageVisibility.set(View.VISIBLE);
+                domainListVisibility.set(View.GONE);
+                progressBarVisibility.set(View.GONE);
+                errorMessageValue.set("Data tidak tersedia");
+            }
+        }, queryText);
     }
 }

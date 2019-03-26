@@ -1,9 +1,14 @@
 package com.eudekagroup16.myapplication.viewmodel;
 
 import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 
+import com.eudekagroup16.myapplication.R;
+import com.eudekagroup16.myapplication.customview.UIDialog;
 import com.eudekagroup16.myapplication.data.DomainNameDataSource;
 import com.eudekagroup16.myapplication.data.DomainRepository;
+import com.eudekagroup16.myapplication.listener.ClickListenerModel;
 import com.eudekagroup16.myapplication.model.Domains;
 import com.eudekagroup16.myapplication.navigator.HomeNavigator;
 
@@ -16,11 +21,9 @@ public class HomeViewModel {
 
     private DomainRepository domainRepository;
     private HomeNavigator homeNavigator;
-    private Context context;
 
-    public HomeViewModel(DomainRepository domainRepository, Context context) {
+    public HomeViewModel(DomainRepository domainRepository) {
         this.domainRepository = domainRepository;
-        this.context = context;
     }
 
     public void setHomeNavigator(HomeNavigator mHomeNavigator) {
@@ -35,9 +38,31 @@ public class HomeViewModel {
             }
 
             @Override
+            public void onDataAvailable() {
+                homeNavigator.onDataNotFound();
+            }
+
+            @Override
             public void onDataNotAvailable(String errorMessage) {
                 homeNavigator.onErrorLoaded(errorMessage);
             }
         }, query);
+    }
+
+    public void getConnected(Context context) {
+        if (!isConnected(context)) {
+            UIDialog.showDialogChecker(context,
+                    "",
+                    context.getResources().getString(R.string.text_message_noconnection),
+                    new ClickListenerModel(context.getResources().getString(R.string.text_label_positive), null))
+                    .show();
+        }
+    }
+
+    private static boolean isConnected(Context context) {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 }

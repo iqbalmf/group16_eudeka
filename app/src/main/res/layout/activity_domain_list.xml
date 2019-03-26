@@ -7,6 +7,10 @@
             name="vm"
             type="com.eudekagroup16.myapplication.viewmodel.DomainListViewModel" />
 
+        <variable
+            name="queryText"
+            type="String" />
+
         <import type="android.view.View" />
     </data>
 
@@ -21,7 +25,7 @@
             android:id="@+id/refreshLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:onRefreshListener="@{() -> vm.getDomainList()}"
+            app:onRefreshListener="@{() -> vm.getDomainList(queryText)}"
             app:refreshing="@{vm.isLoading}">
 
             <FrameLayout

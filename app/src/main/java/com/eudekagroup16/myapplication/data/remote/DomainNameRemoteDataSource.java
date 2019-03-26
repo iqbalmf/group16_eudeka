@@ -18,7 +18,11 @@ public class DomainNameRemoteDataSource implements DomainNameDataSource {
         call.enqueue(new Callback<Domains>() {
             @Override
             public void onResponse(Call<Domains> call, Response<Domains> response) {
-                callback.onDomainsLoaded(response.body());
+                if (response.isSuccessful()) {
+                    callback.onDomainsLoaded(response.body());
+                } else { /*ketika failed response*/
+                    callback.onDataAvailable();
+                }
             }
 
             @Override

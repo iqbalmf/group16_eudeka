@@ -5,10 +5,13 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.MenuItem;
 
+import com.eudekagroup16.myapplication.Constants;
 import com.eudekagroup16.myapplication.Injection;
 import com.eudekagroup16.myapplication.R;
 import com.eudekagroup16.myapplication.adapter.DomainAdapter;
@@ -69,8 +72,12 @@ public class DomainListActivity extends AppCompatActivity implements ItemDomainC
         refreshLayout = findViewById(R.id.refreshLayout);
         refreshLayout.setColorSchemeColors(ContextCompat.getColor(this, R.color.colorPrimary));
 
+        String queryText = getIntent().getStringExtra(Constants.NAMA_DOMAIN);
+        binding.setQueryText(queryText);
+        viewModel.getDomainList(queryText);
+
         if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle("Domain List");
+            getSupportActionBar().setTitle("Domain List" + (TextUtils.isEmpty(queryText) ? "" : (" : " + queryText)));
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
     }
