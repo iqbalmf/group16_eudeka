@@ -2,9 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.eudekagroup16.myapplication">
 
-
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:fullBackupContent="true"
@@ -13,8 +13,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.DomainListActivity"></activity>
-        <activity android:name=".view.HomeActivity">
+        <activity
+            android:name=".view.HomeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.DetailDomainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.DomainListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.SplashScreenActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />

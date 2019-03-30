@@ -33,6 +33,11 @@ public class HomeActivity extends AppCompatActivity implements HomeNavigator {
     private Button butCekDomain, butCekListDomain;
     ActivityMainBinding binding;
 
+    public static void start(Context context){
+        Intent intent = new Intent(context, HomeActivity.class);
+        context.startActivity(intent);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
