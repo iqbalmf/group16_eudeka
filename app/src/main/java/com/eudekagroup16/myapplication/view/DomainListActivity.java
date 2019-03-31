@@ -61,7 +61,7 @@ public class DomainListActivity extends AppCompatActivity implements ItemDomainC
 
     @Override
     public void onItemClickListener(DomainDetail domain) {
-
+        DetailDomainActivity.start(this, domain);
     }
 
     private void initUi() {

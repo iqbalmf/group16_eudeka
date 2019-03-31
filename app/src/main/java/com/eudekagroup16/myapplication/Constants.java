@@ -7,4 +7,6 @@ package com.eudekagroup16.myapplication;
  */
 public class Constants {
     public static final String NAMA_DOMAIN = "nama_domain";
+
+    public static final String KEY_DETAIL_DOMAIN = "detail_domain";
 }

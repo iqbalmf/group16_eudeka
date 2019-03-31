@@ -10,7 +10,7 @@ import retrofit2.Response;
 
 public class DomainNameRemoteDataSource implements DomainNameDataSource {
 
-    private ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+    private ApiInterface apiInterface = ApiClient.getClient(OkhttpClientFactory.create()).create(ApiInterface.class);
 
     @Override
     public void getListDomains(final GetDomainsCallback callback, String query) {

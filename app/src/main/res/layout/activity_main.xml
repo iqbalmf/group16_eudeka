@@ -17,6 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
+        android:padding="@dimen/dimen_16dp"
         tools:context=".view.HomeActivity">
 
         <TextView
@@ -24,6 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/text_input_title"
+            android:fontFamily="@font/titilliumweb_semibold"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -36,6 +38,7 @@
             android:layout_marginTop="16dp"
             android:gravity="center"
             android:hint="@string/text_nama_domain"
+            android:fontFamily="@font/titilliumweb_regular"
             android:inputType="text"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -47,23 +50,36 @@
             android:id="@+id/layoutButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="32dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etInputText">
 
-            <Button
+            <android.support.design.button.MaterialButton
                 android:id="@+id/butCekDomain"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:textColor="@color/colorPrimary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
                 android:text="@string/text_cek_domain"
+                app:cornerRadius="@dimen/dimen_8dp"
+                app:layout_constraintEnd_toStartOf="@+id/butCekListDomain"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:strokeColor="@color/colorPrimary" />
 
-            <Button
+            <android.support.design.button.MaterialButton
                 android:id="@+id/butCekListDomain"
+                style="@style/Widget.MaterialComponents.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
                 android:text="@string/text_cari_domain"
+                app:backgroundTint="@color/colorPrimary"
+                app:cornerRadius="@dimen/dimen_8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/butCekDomain"
                 app:layout_constraintTop_toTopOf="parent" />

@@ -1,10 +1,13 @@
 package com.eudekagroup16.myapplication.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class DomainDetail {
+public class DomainDetail implements Parcelable {
     @SerializedName("domain")
     public String domainName;
     @SerializedName("suffix")
@@ -36,6 +39,44 @@ public class DomainDetail {
         this.domainCountry = domainCountry;
         this.domainNS = domainNS;
     }
+
+    protected DomainDetail(Parcel in) {
+        domainName = in.readString();
+        domainSuffix = in.readString();
+        domainExpiry = in.readString();
+        domainCreate = in.readString();
+        domainUpdate = in.readString();
+        domainCountry = in.readString();
+        domainNS = in.createStringArrayList();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(domainName);
+        dest.writeString(domainSuffix);
+        dest.writeString(domainExpiry);
+        dest.writeString(domainCreate);
+        dest.writeString(domainUpdate);
+        dest.writeString(domainCountry);
+        dest.writeStringList(domainNS);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<DomainDetail> CREATOR = new Creator<DomainDetail>() {
+        @Override
+        public DomainDetail createFromParcel(Parcel in) {
+            return new DomainDetail(in);
+        }
+
+        @Override
+        public DomainDetail[] newArray(int size) {
+            return new DomainDetail[size];
+        }
+    };
 
     public String getDomainName() {
         return domainName;

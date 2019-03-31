@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="16dp"
@@ -10,7 +11,8 @@
         android:id="@+id/tvTitleDialog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Title"
+        tools:text="Title"
+        android:fontFamily="@font/titilliumweb_bold"
         android:textColor="@android:color/black"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,7 +26,8 @@
         android:layout_height="wrap_content"
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
-        android:text="Message"
+        android:fontFamily="@font/titilliumweb_semibold"
+        tools:text="Message"
         android:textSize="16sp"
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,14 +41,16 @@
         android:background="@android:color/darker_gray"
         app:layout_constraintTop_toBottomOf="@id/tvMessageDialog" />
 
-    <Button
+    <android.support.design.button.MaterialButton
         android:id="@+id/btnDialog"
         style="@android:style/Widget.Holo.Button.Borderless"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Okay"
-        android:textColor="@android:color/black"
+        android:layout_marginTop="32dp"
+        android:text="@string/label_okay"
+        app:cornerRadius="@dimen/dimen_16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/view"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        tools:layout_editor_absoluteX="16dp" />
 
 </android.support.constraint.ConstraintLayout>

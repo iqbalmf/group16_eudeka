@@ -8,36 +8,49 @@
             type="com.eudekagroup16.myapplication.viewmodel.ItemDomainViewModel" />
     </data>
 
-    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <android.support.design.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
+        app:cardCornerRadius="@dimen/dimen_4dp"
+        app:cardElevation="@dimen/dimen_4dp"
+        android:layout_marginBottom="@dimen/dimen_16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/selectableItemBackground">
 
-        <TextView
-            android:id="@+id/tvDomain"
+        <android.support.constraint.ConstraintLayout
+            android:background="?attr/selectableItemBackgroundBorderless"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:text="@{vm.domainNameValue}"
-            android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="facebook.com" />
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/tvDomainCountry"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="16dp"
-            android:paddingBottom="16dp"
-            android:paddingRight="16dp"
-            android:text="@{vm.domainCountryValue}"
-            android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
-            android:textStyle="italic"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvDomain"
-            tools:text="SG" />
-    </android.support.constraint.ConstraintLayout>
+            <TextView
+                android:id="@+id/tvDomain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:fontFamily="@font/titilliumweb_bold"
+                android:text="@{vm.domainNameValue}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="facebook.com" />
+
+            <TextView
+                android:id="@+id/tvDomainCountry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/titilliumweb_semibold"
+                android:paddingLeft="16dp"
+                android:paddingBottom="16dp"
+                android:paddingRight="16dp"
+                android:text="@{vm.domainCountryValue}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvDomain"
+                tools:text="SG" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.design.card.MaterialCardView>
 </layout>
