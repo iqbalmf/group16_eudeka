@@ -31,4 +31,6 @@ ext{
     constraintVersion = "1.1.3"
     retrofitVersion = "2.4.0"
     roomVersion = "1.1.1"
+    okHttpVersion = "3.12.0"
+    lottieLibraryVersion = "2.7.0"
 }
