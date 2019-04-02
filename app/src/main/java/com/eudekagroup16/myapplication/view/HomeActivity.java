@@ -131,7 +131,12 @@ public class HomeActivity extends AppCompatActivity implements HomeNavigator {
         UIDialog.showDialogChecker(this,
                 "Hasil Check Domain\n" + etDomain.getText().toString(),
                 this.getResources().getString(R.string.text_domain_unavailable),
-                new ClickListenerModel(this.getResources().getString(R.string.text_label_positive), null)).show();
+                new ClickListenerModel(this.getResources().getString(R.string.text_label_positive), new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        UIDialog.hideDialogChecker();
+                    }
+                })).show();
     }
 
     @Override
@@ -139,7 +144,12 @@ public class HomeActivity extends AppCompatActivity implements HomeNavigator {
         UIDialog.showDialogChecker(this,
                 "Hasil Check Domain\n" + etDomain.getText().toString(),
                 this.getResources().getString(R.string.text_domain_available),
-                new ClickListenerModel(this.getResources().getString(R.string.text_label_positive), null)).show();
+                new ClickListenerModel(this.getResources().getString(R.string.text_label_positive), new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        UIDialog.hideDialogChecker();
+                    }
+                })).show();
     }
 
     @Override
@@ -147,7 +157,12 @@ public class HomeActivity extends AppCompatActivity implements HomeNavigator {
         UIDialog.showDialogChecker(this,
                 "Hasil Check Domain\n" + etDomain.getText().toString(),
                 message,
-                new ClickListenerModel(this.getResources().getString(R.string.text_label_positive), null)).show();
+                new ClickListenerModel(this.getResources().getString(R.string.text_label_positive), new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        UIDialog.hideDialogChecker();
+                    }
+                })).show();
     }
 
     @Override
