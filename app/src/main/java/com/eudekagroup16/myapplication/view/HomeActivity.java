@@ -18,6 +18,7 @@ import com.eudekagroup16.myapplication.Constants;
 import com.eudekagroup16.myapplication.Injection;
 import com.eudekagroup16.myapplication.MyClickListener;
 import com.eudekagroup16.myapplication.R;
+import com.eudekagroup16.myapplication.customview.ProgressDialogFragment;
 import com.eudekagroup16.myapplication.customview.UIDialog;
 import com.eudekagroup16.myapplication.databinding.ActivityMainBinding;
 import com.eudekagroup16.myapplication.listener.ClickListenerModel;
@@ -36,6 +37,7 @@ public class HomeActivity extends AppCompatActivity implements HomeNavigator {
     private EditText etDomain;
     private TextInputLayout tilDomain;
     private Button butCekDomain, butCekListDomain;
+    ProgressDialogFragment progressDialog;
     ActivityMainBinding binding;
 
     public static void start(Context context) {
@@ -49,6 +51,14 @@ public class HomeActivity extends AppCompatActivity implements HomeNavigator {
         initializeUI();
         initViewEvent();
         initViewModel();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (progressDialog != null && progressDialog.isVisible()) {
+            progressDialog.dismiss();
+        }
     }
 
     private void initViewModel() {
@@ -107,6 +117,8 @@ public class HomeActivity extends AppCompatActivity implements HomeNavigator {
         binding.setMyClickListener(listener);
         etDomain = findViewById(R.id.etInputText);
         tilDomain = findViewById(R.id.tilInputText);
+        progressDialog = new ProgressDialogFragment();
+        progressDialog.setCancelable(false);
         butCekDomain = findViewById(R.id.butCekDomain);
         butCekListDomain = findViewById(R.id.butCekListDomain);
         if (getSupportActionBar() != null) {
@@ -116,8 +128,6 @@ public class HomeActivity extends AppCompatActivity implements HomeNavigator {
 
     @Override
     public void onViewLoaded(List<DomainDetail> listDomain) {
-
-        dataListDomain.addAll(listDomain);
         UIDialog.showDialogChecker(this,
                 "Hasil Check Domain\n" + etDomain.getText().toString(),
                 this.getResources().getString(R.string.text_domain_unavailable),
@@ -139,4 +149,14 @@ public class HomeActivity extends AppCompatActivity implements HomeNavigator {
                 message,
                 new ClickListenerModel(this.getResources().getString(R.string.text_label_positive), null)).show();
     }
+
+    @Override
+    public void setLoading(boolean isLoading) {
+        if (isLoading) {
+            progressDialog.show(getSupportFragmentManager(), "ProgressDialog");
+        } else {
+            progressDialog.dismiss();
+        }
+    }
+
 }

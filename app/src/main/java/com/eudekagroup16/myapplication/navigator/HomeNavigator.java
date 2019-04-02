@@ -17,4 +17,6 @@ public interface HomeNavigator {
     void onDataNotFound();
 
     void onErrorLoaded(String message);
+
+    void setLoading(boolean isLoading);
 }

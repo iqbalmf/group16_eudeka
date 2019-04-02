@@ -31,19 +31,23 @@ public class HomeViewModel {
     }
 
     public void getCheckResult(String query) {
+        homeNavigator.setLoading(true);
         domainRepository.getListDomains(new DomainNameDataSource.GetDomainsCallback() {
             @Override
             public void onDomainsLoaded(Domains data) {
+                homeNavigator.setLoading(false);
                 homeNavigator.onViewLoaded(data.getDomains());
             }
 
             @Override
             public void onDataAvailable() {
+                homeNavigator.setLoading(false);
                 homeNavigator.onDataNotFound();
             }
 
             @Override
             public void onDataNotAvailable(String errorMessage) {
+                homeNavigator.setLoading(false);
                 homeNavigator.onErrorLoaded(errorMessage);
             }
         }, query);
