@@ -5,7 +5,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -30,10 +34,11 @@ public class HomeActivity extends AppCompatActivity implements HomeNavigator {
     private MyClickListener listener;
     private List<DomainDetail> dataListDomain;
     private EditText etDomain;
+    private TextInputLayout tilDomain;
     private Button butCekDomain, butCekListDomain;
     ActivityMainBinding binding;
 
-    public static void start(Context context){
+    public static void start(Context context) {
         Intent intent = new Intent(context, HomeActivity.class);
         context.startActivity(intent);
     }
@@ -46,7 +51,7 @@ public class HomeActivity extends AppCompatActivity implements HomeNavigator {
         initViewModel();
     }
 
-    private void initViewModel(){
+    private void initViewModel() {
         homeViewModel.getConnected(this);
     }
 
@@ -54,15 +59,41 @@ public class HomeActivity extends AppCompatActivity implements HomeNavigator {
         butCekDomain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (TextUtils.isEmpty(etDomain.getText().toString())) {
+                    tilDomain.setError(getString(R.string.text_domain_empty));
+                    return;
+                }
                 homeViewModel.getCheckResult(etDomain.getText().toString());
             }
         });
         butCekListDomain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (TextUtils.isEmpty(etDomain.getText().toString())) {
+                    tilDomain.setError(getString(R.string.text_domain_empty));
+                    return;
+                }
                 Intent intent = new Intent(HomeActivity.this, DomainListActivity.class);
                 intent.putExtra(Constants.NAMA_DOMAIN, etDomain.getText().toString());
                 startActivity(intent);
+            }
+        });
+        etDomain.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (etDomain.getText().length() > 0) {
+                    tilDomain.setError(null);
+                }
             }
         });
     }
@@ -75,6 +106,7 @@ public class HomeActivity extends AppCompatActivity implements HomeNavigator {
         listener = new MyClickListener(this);
         binding.setMyClickListener(listener);
         etDomain = findViewById(R.id.etInputText);
+        tilDomain = findViewById(R.id.tilInputText);
         butCekDomain = findViewById(R.id.butCekDomain);
         butCekListDomain = findViewById(R.id.butCekListDomain);
         if (getSupportActionBar() != null) {

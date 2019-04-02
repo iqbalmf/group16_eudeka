@@ -1,11 +1,13 @@
 <resources>
     <string name="app_name">Domain Search</string>
     <string name="text_nama_domain">Nama Domain</string>
+    <string name="text_nama_domain_example">Contoh : facebook.com</string>
     <string name="text_input_title">Masukan nama Domain</string>
     <string name="text_cek_domain">Cek Domain</string>
     <string name="text_cari_domain">Cari</string>
     <string name="text_domain_available">Domain Tersedia</string>
     <string name="text_domain_unavailable">Domain Sudah Dipakai</string>
+    <string name="text_domain_empty">Anda belum menginputkan nama domain</string>
     <string name="text_label_positive">Okay</string>
     <string name="text_label_titlebar">Domain Checker</string>
     <string name="text_message_noconnection">Internet Terputus</string>
