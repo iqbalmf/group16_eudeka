@@ -3,6 +3,7 @@ package com.eudekagroup16.myapplication.viewmodel;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.view.View;
 
 import com.eudekagroup16.myapplication.R;
 import com.eudekagroup16.myapplication.customview.UIDialog;
@@ -58,7 +59,12 @@ public class HomeViewModel {
             UIDialog.showDialogChecker(context,
                     "",
                     context.getResources().getString(R.string.text_message_noconnection),
-                    new ClickListenerModel(context.getResources().getString(R.string.text_label_positive), null))
+                    new ClickListenerModel(context.getResources().getString(R.string.text_label_positive), new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            UIDialog.hideDialogChecker();
+                        }
+                    }))
                     .show();
         }
     }
