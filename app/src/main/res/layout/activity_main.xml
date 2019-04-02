@@ -4,63 +4,91 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="myClickListener"
-            type="com.eudekagroup16.myapplication.MyClickListener"/>
-        <import type="android.view.View"/>
-        
+            type="com.eudekagroup16.myapplication.MyClickListener" />
+
+        <import type="android.view.View" />
+
     </data>
+
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
+        android:padding="@dimen/dimen_16dp"
         tools:context=".view.HomeActivity">
 
         <TextView
             android:id="@+id/tvTitleInput"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/titilliumweb_semibold"
             android:text="@string/text_input_title"
             android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@id/tilInputText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilInputText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:errorEnabled="true"
+            app:hintEnabled="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/etInputText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:hint="@string/text_nama_domain"
-            android:inputType="text"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvTitleInput" />
+            <EditText
+                android:id="@+id/etInputText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/titilliumweb_regular"
+                android:gravity="center"
+                android:hint="@string/text_nama_domain_example"
+                android:inputType="text"
+                android:textSize="16sp" />
+
+        </android.support.design.widget.TextInputLayout>
 
         <android.support.constraint.ConstraintLayout
+            android:id="@+id/layoutButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etInputText">
+            app:layout_constraintTop_toBottomOf="@id/tilInputText">
 
-            <Button
+            <android.support.design.button.MaterialButton
                 android:id="@+id/butCekDomain"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
                 android:text="@string/text_cek_domain"
-                android:onClick="@{myClickListener::onCheckAvaibility}"
+                android:textColor="@color/colorPrimary"
+                app:cornerRadius="@dimen/dimen_8dp"
+                app:layout_constraintEnd_toStartOf="@+id/butCekListDomain"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:strokeColor="@color/colorPrimary" />
 
-            <Button
+            <android.support.design.button.MaterialButton
                 android:id="@+id/butCekListDomain"
+                style="@style/Widget.MaterialComponents.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
                 android:text="@string/text_cari_domain"
-                android:onClick="@{myClickListener::onClickListener}"
+                app:backgroundTint="@color/colorPrimary"
+                app:cornerRadius="@dimen/dimen_8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/butCekDomain"
                 app:layout_constraintTop_toTopOf="parent" />
