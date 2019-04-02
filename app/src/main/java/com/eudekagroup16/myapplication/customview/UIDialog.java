@@ -18,6 +18,8 @@ import com.eudekagroup16.myapplication.listener.ClickListenerModel;
  * Created by IqbalMF on 3/25/2019
  */
 public class UIDialog {
+    private static AlertDialog dialog;
+
     public static AlertDialog showDialogChecker(Context context,
                                                 String title,
                                                 String message,
@@ -40,9 +42,15 @@ public class UIDialog {
         final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(context);
         dialogBuilder.setView(view);
         dialogBuilder.setCancelable(Boolean.TRUE);
-        final AlertDialog dialog = dialogBuilder.create();
+        dialog = dialogBuilder.create();
         if (dialog.getWindow() != null)
             dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         return dialog;
+    }
+
+    public static void hideDialogChecker() {
+        if (dialog.isShowing()) {
+            dialog.dismiss();
+        }
     }
 }
